@@ -13,6 +13,23 @@ Plant growing monitor
 - mqtt
 - grafana
 
+## Mysql setup
+For grafana and mqtt usage, you'll need two users
+- grafanaReader (for grafana to be able to read data) 
+- nodeMQTT (for adding rows from mqtt queue into db)
+- Create an accessible table for system to use, example: tables.sql
+
+Grants for users:
+```
+GRANT SELECT, SHOW VIEW ON xxx.`xxx` to 'grafanaReader';
+```
+```
+GRANT ALL ON xxx.`xxx` to 'nodeMQTT'@`localhost`;
+```
+
+
+
+
 ## Running
 > npm i mqtt mysql2
 
